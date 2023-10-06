@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import classes from "./Checkout.module.css";
 
 const isEmpty = (value) => value.trim() === "";
-
 const isFiveChars = (value) => value.trim().length === 5;
 
 const Checkout = (props) => {
@@ -47,7 +46,12 @@ const Checkout = (props) => {
     if (!formIsValid) {
     }
 
-    //submit the data
+    props.onConfirm({
+      name: enteredName,
+      street: enteredStreet,
+      city: enteredCity,
+      postalCode: enteredPostalCode
+    })
   };
 
   return (
